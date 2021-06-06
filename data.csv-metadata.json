@@ -40,7 +40,7 @@
                     "name": "age",
                     "titles": "age",
                     "dc:description": "Researchers age.",
-                    "datatype": "number",
+                    "datatype": "integer",
                     "propertyUrl": "foaf:age"
                 },
                 {
@@ -59,7 +59,7 @@
                     "dc:description": "ISO 3166-1 Alpha-2 code representing nation.",
                     "required": true,
                     "datatype": "string",
-                    "propertyUrl": "schema:Country"
+                    "propertyUrl": "http://example.org/vocabulary/nationality"
                 }
             ],
             "primaryKey": "researcher_id",
@@ -90,7 +90,7 @@
                     "required": true,
                     "datatype": "string",
                     "propertyUrl": "rdf:type",
-                    "valueUrl": "http://example.org/vocabulary/Nation"
+                    "valueUrl": "schema:Country"
                 },
                 {
                     "@type": "Column",
@@ -117,7 +117,7 @@
                     "titles": "population",
                     "dc:description": "Population of a nation.",
                     "required": true,
-                    "datatype": "number",
+                    "datatype": "integer",
                     "propertyUrl": "https://dbpedia.org/ontology/populationTotal"
                 }
             ],
@@ -132,7 +132,7 @@
             "@type": "Schema",
             "aboutUrl": "http://example.org/Discovers/{researcher_id}-{celestial_object_id}",
             "propertyUrl": "rdf:type",
-            "valueUrl": "http://example.org/vocabulary/Discovers",
+            "valueUrl": "http://example.org/vocabulary/discovers",
             "columns": [
                 {
                     "@type": "Column",
@@ -140,8 +140,8 @@
                     "titles": "researcher_id",
                     "dc:description": "Made up id for each researcher in system.",
                     "required": true,
-                    "datatype": "string",
-                    "propertyUrl": "http://example.org/vocabulary/Researcher",
+                    "datatype": "anyURI",
+                    "propertyUrl": "http://example.org/vocabulary/discoveredBy",
                     "valueUrl": "http://example.org/Researchers/{researcher_id}"
                 },
                 {
@@ -150,8 +150,8 @@
                     "titles": "celestial_object_id",
                     "dc:description": "Celestial object id.",
                     "required": true,
-                    "datatype": "string",
-                    "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                    "datatype": "anyURI",
+                    "propertyUrl": "http://example.org/vocabulary/discovered",
                     "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}"
                 },
                 {
@@ -160,7 +160,7 @@
                     "titles": "discovered_in",
                     "dc:description": "Year of discovery.",
                     "required": true,
-                    "datatype": "number",
+                    "datatype": "integer",
                     "propertyUrl": "https://dbpedia.org/ontology/discovery"
                 }
             ],
@@ -194,7 +194,7 @@
             "@type": "Schema",
             "aboutUrl": "http://example.org/Monitors/{researcher_id}-{celestial_object_id}",
             "propertyUrl": "rdf:type",
-            "valueUrl": "http://example.org/vocabulary/Monitors",
+            "valueUrl": "http://example.org/vocabulary/monitors",
             "columns": [
                 {
                     "@type": "Column",
@@ -202,8 +202,8 @@
                     "titles": "researcher_id",
                     "dc:description": "Made up id for each researcher in system.",
                     "required": true,
-                    "datatype": "string",
-                    "propertyUrl": "http://example.org/vocabulary/Researcher",
+                    "datatype": "anyURI",
+                    "propertyUrl": "http://example.org/vocabulary/monitoredBy",
                     "valueUrl": "http://example.org/Researchers/{researcher_id}"
                 },
                 {
@@ -212,8 +212,8 @@
                     "titles": "celestial_object_id",
                     "dc:description": "Celestial object id.",
                     "required": true,
-                    "datatype": "string",
-                    "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                    "datatype": "anyURI",
+                    "propertyUrl": "http://example.org/vocabulary/monitored",
                     "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}"
                 }
             ],
@@ -270,7 +270,7 @@
                     "name": "age",
                     "titles": "age",
                     "dc:description": "Age of celestial object.",
-                    "datatype": "number",
+                    "datatype": "integer",
                     "propertyUrl": "foaf:age"
                 }
             ],
@@ -302,8 +302,8 @@
                     "titles": "celestial_object",
                     "dc:description": "Made up id for each celestial object in the system.",
                     "required": true,
-                    "datatype": "string",
-                    "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                    "datatype": "anyURI",
+                    "propertyUrl": "http://example.org/vocabulary/isCelestialObject",
                     "valueUrl": "http://example.org/CelestialObjects/{celestial_object}"
                 },
                 {
@@ -312,7 +312,7 @@
                     "titles": "has_rare_materials",
                     "dc:description": "Indicates whenever rare materials can be cound on asteroid.",
                     "datatype": "boolean",
-                    "propertyUrl": "schema:boolean"
+                    "propertyUrl": "http://example.org/vocabulary/hasRareMaterials"
                 },
                 {
                     "@type": "Column",
@@ -320,7 +320,7 @@
                     "titles": "is_spinning",
                     "dc:description": "Indicates whenever an asteroid is spinning.",
                     "datatype": "boolean",
-                    "propertyUrl": "schema:boolean"
+                    "propertyUrl": "http://example.org/vocabulary/isSpinning"
                 },
                 {
                     "@type": "Column",
@@ -329,7 +329,7 @@
                     "dc:description": "String of years separated by spaces - each of them is year when an asteroid is observable.",
                     "required": true,
                     "datatype": "string",
-                    "propertyUrl": "rdfs:label"
+                    "propertyUrl": "https://dbpedia.org/ontology/years"
                 }
             ],
             "primaryKey": "asteroid_name",
@@ -369,8 +369,8 @@
                     "titles": "celestial_object",
                     "dc:description": "Made up id for each celestial object in the system.",
                     "required": true,
-                    "datatype": "string",
-                    "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                    "datatype": "anyURI",
+                    "propertyUrl": "http://example.org/vocabulary/IsCelestialObject",
                     "valueUrl": "http://example.org/CelestialObjects/{celestial_object}"
                 },
                 {
@@ -379,7 +379,7 @@
                     "titles": "average_surface_temperature",
                     "dc:description": "An average temperature on survace (in Celsius).",
                     "datatype": "number",
-                    "propertyUrl": "schema:integer"
+                    "propertyUrl": "http://example.org/vocabulary/temperature"
                 },
                 {
                     "@type": "Column",
@@ -387,7 +387,7 @@
                     "titles": "is_habitable",
                     "dc:description": "Indicates whenever a planet is habitable.",
                     "datatype": "boolean",
-                    "propertyUrl": "schema:boolean"
+                    "propertyUrl": "http://example.org/vocabulary/isHabitable"
                 },
                 {
                     "@type": "Column",
@@ -395,7 +395,7 @@
                     "titles": "has_atmosphere",
                     "dc:description": "Indicates whenever a planet has atmosphere.",
                     "datatype": "boolean",
-                    "propertyUrl": "schema:boolean"
+                    "propertyUrl": "http://example.org/vocabulary/hasAtmosphere"
                 },
                 {
                     "@type": "Column",
@@ -404,7 +404,7 @@
                     "dc:description": "Identifier of a core of certain planet.",
                     "required": true,
                     "datatype": "string",
-                    "propertyUrl": "http://example.org/vocabulary/Core",
+                    "propertyUrl": "http://example.org/vocabulary/hasCore",
                     "valueUrl": "http://example.org/Cores/{has_core}"
                 }
             ],
@@ -452,15 +452,15 @@
                     "name": "temperature",
                     "titles": "temperature",
                     "dc:description": "An average temperature in Celsius.",
-                    "datatype": "number",
-                    "propertyUrl": "schema:integer"
+                    "datatype": "integer",
+                    "propertyUrl": "http://example.org/vocabulary/temperature"
                 },
                 {
                     "@type": "Column",
                     "name": "age",
                     "titles": "age",
                     "dc:description": "Age of a core.",
-                    "datatype": "number",
+                    "datatype": "integer",
                     "propertyUrl": "foaf:age"
                 }
             ],
