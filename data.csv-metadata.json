@@ -1,0 +1,471 @@
+{
+    "@context": [
+      "http://www.w3.org/ns/csvw",
+      {
+        "@language": "cs"
+      }
+    ],
+    "@id": "https://example.org/data.csv-metadata.json",
+    "@type": "TableGroup",
+    "tables": [
+    {
+        "@id": "https://example.org/data-1.csv-metadata.json",
+        "@type": "Table",
+        "url": "data-1.csv",
+        "tableSchema": {
+            "@type": "Schema",
+            "aboutUrl": "http://example.org/Researchers/{researcher_id}",
+            "columns": [
+                {
+                    "@type": "Column",
+                    "name": "researcher_id",
+                    "titles": "researcher_id",
+                    "dc:description": "Made up id for each researcher in the system.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "rdf:type",
+                    "valueUrl": "http://example.org/vocabulary/Researcher"
+                },
+                {
+                    "@type": "Column",
+                    "name": "name",
+                    "titles": "name",
+                    "dc:description": "Reseachers full name.",
+                    "datatype": "string",
+                    "lang": "en",
+                    "propertyUrl": "rdfs:label"
+                },
+                {
+                    "@type": "Column",
+                    "name": "age",
+                    "titles": "age",
+                    "dc:description": "Researchers age.",
+                    "datatype": "number",
+                    "propertyUrl": "foaf:age"
+                },
+                {
+                    "@type": "Column",
+                    "name": "sex",
+                    "titles": "sex",
+                    "dc:description": "Researchers sex.",
+                    "datatype": "string",
+                    "lang": "en",
+                    "propertyUrl": "vcard:hasGender"
+                },
+                {
+                    "@type": "Column",
+                    "name": "nationality",
+                    "titles": "nationality",
+                    "dc:description": "ISO 3166-1 Alpha-2 code representing nation.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "schema:Country"
+                }
+            ],
+            "primaryKey": "researcher_id",
+            "foreignKeys": [
+                {
+                    "columnReference": "nationality",
+                    "reference": {
+                        "resource": "data-2.csv",
+                        "columnReference": "nation_id"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "@id": "https://example.org/data-2.csv-metadata.json",
+        "@type": "Table",
+        "url": "data-2.csv",
+        "tableSchema": {
+            "@type": "Schema",
+            "aboutUrl": "http://example.org/Nations/{nation_id}",
+            "columns": [
+                {
+                    "@type": "Column",
+                    "name": "nation_id",
+                    "titles": "nation_id",
+                    "dc:description": "ISO 3166-1 Alpha-2 code representing a nation.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "rdf:type",
+                    "valueUrl": "http://example.org/vocabulary/Nation"
+                },
+                {
+                    "@type": "Column",
+                    "name": "name",
+                    "titles": "name",
+                    "dc:description": "Full name of a nation.",
+                    "required": true,
+                    "datatype": "string",
+                    "lang": "en",
+                    "propertyUrl": "rdfs:label"
+                },
+                {
+                    "@type": "Column",
+                    "name": "official_language",
+                    "titles": "official_language",
+                    "dc:description": "String of ISO 639-1 Codes separated by spaces - each representing official language of a nation.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "xs:language"
+                },
+                {
+                    "@type": "Column",
+                    "name": "population",
+                    "titles": "population",
+                    "dc:description": "Population of a nation.",
+                    "required": true,
+                    "datatype": "number",
+                    "propertyUrl": "https://dbpedia.org/ontology/populationTotal"
+                }
+            ],
+            "primaryKey": "nation_id"
+        }
+    },
+    {
+        "@id": "https://example.org/data-3.csv-metadata.json",
+        "@type": "Table",
+        "url": "data-3.csv",
+        "tableSchema": {
+            "@type": "Schema",
+            "aboutUrl": "http://example.org/Discovers/{researcher_id}-{celestial_object_id}",
+            "datatype": "rdf:type",
+            "valueUrl": "http://example.org/vocabulary/Discovers",
+            "columns": [
+                {
+                    "@type": "Column",
+                    "name": "researcher_id",
+                    "titles": "researcher_id",
+                    "dc:description": "Made up id for each researcher in system.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "http://example.org/vocabulary/Researcher",
+                    "valueUrl": "http://example.org/Researchers/{researcher_id}"
+                },
+                {
+                    "@type": "Column",
+                    "name": "celestial_object_id",
+                    "titles": "celestial_object_id",
+                    "dc:description": "Celestial object id.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                    "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}"
+                },
+                {
+                    "@type": "Column",
+                    "name": "discovered_in",
+                    "titles": "discovered_in",
+                    "dc:description": "Year of discovery.",
+                    "required": true,
+                    "datatype": "number",
+                    "propertyUrl": "https://dbpedia.org/ontology/discovery"
+                }
+            ],
+            "primaryKey": [
+                "researcher_id",
+                "celestial_object_id"
+            ],
+            "foreignKeys": [
+                {
+                    "columnReference": "researcher_id",
+                    "reference": {
+                        "resource": "data-1.csv",
+                        "columnReference": "researcher_id"
+                    }
+                },
+                {
+                    "columnReference": "celestial_object_id",
+                    "reference": {
+                        "resource": "data-5.csv",
+                        "columnReference": "celestial_object_id"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "@id": "https://example.org/data-4.csv-metadata.json",
+        "@type": "Table",
+        "url": "data-4.csv",
+        "tableSchema": {
+            "@type": "Schema",
+            "aboutUrl": "http://example.org/Monitors/{researcher_id}-{celestial_object_id}",
+            "datatype": "rdf:type",
+            "valueUrl": "http://example.org/vocabulary/Monitors",
+            "columns": [
+                {
+                    "@type": "Column",
+                    "name": "researcher_id",
+                    "titles": "researcher_id",
+                    "dc:description": "Made up id for each researcher in system.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "http://example.org/vocabulary/Researcher",
+                    "valueUrl": "http://example.org/Researchers/{researcher_id}"
+                },
+                {
+                    "@type": "Column",
+                    "name": "celestial_object_id",
+                    "titles": "celestial_object_id",
+                    "dc:description": "Celestial object id.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                    "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}"
+                }
+            ],
+            "primaryKey": [
+                "researcher_id",
+                "celestial_object_id"
+            ],
+            "foreignKeys": [
+                {
+                    "columnReference": "researcher_id",
+                    "reference": {
+                        "resource": "data-1.csv",
+                        "columnReference": "researcher_id"
+                    }
+                },
+                {
+                    "columnReference": "celestial_object_id",
+                    "reference": {
+                        "resource": "data-5.csv",
+                        "columnReference": "celestial_object_id"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "@id": "https://example.org/public-contracts/data-5.csv-metadata.json",
+        "@type": "Table",
+        "url": "data-5.csv",
+        "tableSchema": {
+            "@type": "Schema",
+            "aboutUrl": "http://example.org/CelestialObjects/{celestial_object_id}",
+            "columns": [
+                {
+                    "@type": "Column",
+                    "name": "celestial_object_id",
+                    "titles": "celestial_object_id",
+                    "dc:description": "Made up id for each celestial object in the system.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "rdf:type",
+                    "valueUrl": "http://example.org/vocabulary/CelestialObject"
+                },
+                {
+                    "@type": "Column",
+                    "name": "diameter",
+                    "titles": "diameter",
+                    "dc:description": "Diameter of celestial object.",
+                    "datatype": "number",
+                    "propertyUrl": "https://dbpedia.org/ontology/diameter"
+                },
+                {
+                    "@type": "Column",
+                    "name": "age",
+                    "titles": "age",
+                    "dc:description": "Age of celestial object.",
+                    "datatype": "number",
+                    "propertyUrl": "foaf:age"
+                }
+            ],
+            "primaryKey": "celestial_object_id"
+        }
+    },
+    {
+        "@id": "https://example.org/data-6.csv-metadata.json",
+        "@type": "Table",
+        "url": "data-6.csv",
+        "tableSchema": {
+            "@type": "Schema",
+            "aboutUrl": "http://example.org/Asteroids/{asteroid_name}",
+            "columns": [
+                {
+                    "@type": "Column",
+                    "name": "asteroid_name",
+                    "titles": "asteroid_name",
+                    "dc:description": "Unique asteroid name.",
+                    "required": true,
+                    "datatype": "string",
+                    "lang": "en",
+                    "propertyUrl": "rdf:type",
+                    "valueUrl": "http://example.org/vocabulary/Asteroid"
+                },
+                {
+                    "@type": "Column",
+                    "name": "celestial_object",
+                    "titles": "celestial_object",
+                    "dc:description": "Made up id for each celestial object in the system.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                    "valueUrl": "http://example.org/CelestialObjects/{celestial_object}"
+                },
+                {
+                    "@type": "Column",
+                    "name": "has_rare_materials",
+                    "titles": "has_rare_materials",
+                    "dc:description": "Indicates whenever rare materials can be cound on asteroid.",
+                    "datatype": "boolean",
+                    "propertyUrl": "schema:boolean"
+                },
+                {
+                    "@type": "Column",
+                    "name": "is_spinning",
+                    "titles": "is_spinning",
+                    "dc:description": "Indicates whenever an asteroid is spinning.",
+                    "datatype": "boolean",
+                    "propertyUrl": "schema:boolean"
+                },
+                {
+                    "@type": "Column",
+                    "name": "years_sighted",
+                    "titles": "years_sighted",
+                    "dc:description": "String of years separated by spaces - each of them is year when an asteroid is observable.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "rdfs:label"
+                }
+            ],
+            "primaryKey": "asteroid_name",
+            "foreignKeys": [
+                {
+                    "columnReference": "celestial_object",
+                    "reference": {
+                        "resource": "data-5.csv",
+                        "columnReference": "celestial_object_id"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "@id": "https://example.org/data-7.csv-metadata.json",
+        "@type": "Table",
+        "url": "data-7.csv",
+        "tableSchema": {
+            "@type": "Schema",
+            "aboutUrl": "http://example.org/Planets/{planet_name}",
+            "columns": [
+                {
+                    "@type": "Column",
+                    "name": "planet_name",
+                    "titles": "planet_name",
+                    "dc:description": "Unique planet name.",
+                    "required": true,
+                    "datatype": "string",
+                    "lang": "en",
+                    "propertyUrl": "rdf:type",
+                    "valueUrl": "http://example.org/vocabulary/Planet"
+                },
+                {
+                    "@type": "Column",
+                    "name": "celestial_object",
+                    "titles": "celestial_object",
+                    "dc:description": "Made up id for each celestial object in the system.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                    "valueUrl": "http://example.org/CelestialObjects/{celestial_object}"
+                },
+                {
+                    "@type": "Column",
+                    "name": "average_surface_temperature",
+                    "titles": "average_surface_temperature",
+                    "dc:description": "An average temperature on survace (in Celsius).",
+                    "datatype": "number",
+                    "propertyUrl": "schema:integer"
+                },
+                {
+                    "@type": "Column",
+                    "name": "is_habitable",
+                    "titles": "is_habitable",
+                    "dc:description": "Indicates whenever a planet is habitable.",
+                    "datatype": "boolean",
+                    "propertyUrl": "schema:boolean"
+                },
+                {
+                    "@type": "Column",
+                    "name": "has_atmosphere",
+                    "titles": "has_atmosphere",
+                    "dc:description": "Indicates whenever a planet has atmosphere.",
+                    "datatype": "boolean",
+                    "propertyUrl": "schema:boolean"
+                },
+                {
+                    "@type": "Column",
+                    "name": "has_core",
+                    "titles": "has_core",
+                    "dc:description": "Identifier of a core of certain planet.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "http://example.org/vocabulary/Core",
+                    "valueUrl": "http://example.org/Cores/{has_core}"
+                }
+            ],
+            "primaryKey": "planet_name",
+            "foreignKeys": [
+                {
+                    "columnReference": "has_core",
+                    "reference": {
+                        "resource": "data-8.csv",
+                        "columnReference": "core_name"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "@id": "https://example.org/data-8.csv-metadata.json",
+        "@type": "Table",
+        "url": "data-8.csv",
+        "tableSchema": {
+            "@type": "Schema",
+            "aboutUrl": "http://example.org/Cores/{core_name}",
+            "columns": [
+                {
+                    "@type": "Column",
+                    "name": "core_name",
+                    "titles": "core_name",
+                    "dc:description": "Identifier of a core of certain planet.",
+                    "required": true,
+                    "datatype": "string",
+                    "lang": "en",
+                    "propertyUrl": "rdf:type",
+                    "valueUrl": "http://example.org/vocabulary/Core"
+                },
+                {
+                    "@type": "Column",
+                    "name": "diameter",
+                    "titles": "diameter",
+                    "dc:description": "Diameter of a core.",
+                    "datatype": "number",
+                    "propertyUrl": "https://dbpedia.org/ontology/diameter"
+                },
+                {
+                    "@type": "Column",
+                    "name": "temperature",
+                    "titles": "temperature",
+                    "dc:description": "An average temperature in Celsius.",
+                    "datatype": "number",
+                    "propertyUrl": "schema:integer"
+                },
+                {
+                    "@type": "Column",
+                    "name": "age",
+                    "titles": "age",
+                    "dc:description": "Age of a core.",
+                    "datatype": "number",
+                    "propertyUrl": "foaf:age"
+                }
+            ],
+            "primaryKey": "core_name"
+        }
+    }            
+    ]
+}
