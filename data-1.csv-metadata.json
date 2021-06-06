@@ -29,15 +29,15 @@
                 "dc:description": "Reseachers full name.",
                 "datatype": "string",
                 "lang": "en",
-                "propertyUrl": "rdfs:label",
-                "valueUrl": "http://example.org/Researcher/{researcher_id}/{name}"
+                "propertyUrl": "rdfs:label"
             },
             {
                 "@type": "Column",
                 "name": "age",
                 "titles": "age",
                 "dc:description": "Researchers age.",
-                "datatype": "number"
+                "datatype": "number",
+                "propertyUrl": "foaf:age"
             },
             {
                 "@type": "Column",
@@ -45,7 +45,8 @@
                 "titles": "sex",
                 "dc:description": "Researchers sex.",
                 "datatype": "string",
-                "lang": "en"
+                "lang": "en",
+                "propertyUrl": "vcard:hasGender"
             },
             {
                 "@type": "Column",
