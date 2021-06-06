@@ -11,8 +11,6 @@
     "tableSchema": {
         "@type": "Schema",
         "aboutUrl": "http://example.org/vocabulary/{researcher_id}",
-        "valueUrl": "http://example.org/vocabulary/Researcher",
-        "propertyUrl": "rdf:type",
         "columns": [
             {
                 "@type": "Column",
@@ -20,7 +18,9 @@
                 "titles": "researcher_id",
                 "dc:description": "Made up id for each researcher in the system.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "valueUrl": "http://example.org/vocabulary/Researcher",
+                "propertyUrl": "rdf:type"
             },
             {
                 "@type": "Column",
