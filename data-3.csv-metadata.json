@@ -11,7 +11,7 @@
     "tableSchema": {
         "@type": "Schema",
         "aboutUrl": "http://example.org/Discovers/{researcher_id}-{celestial_object_id}",
-        "datatype": "rdf:type",
+        "propertyUrl": "rdf:type",
         "valueUrl": "http://example.org/vocabulary/Discovers",
         "columns": [
             {
