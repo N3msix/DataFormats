@@ -69,7 +69,7 @@
             }
         ],
         "primaryKey": "planet_name",
-        "foreignKey": [
+        "foreignKeys": [
             {
                 "columnReference": "has_core",
                 "reference": {

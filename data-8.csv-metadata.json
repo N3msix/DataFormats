@@ -10,6 +10,7 @@
     "url": "data-8.csv",
     "tableSchema": {
         "@type": "Schema",
+        "aboutUrl": "http://example.org/Cores/{core_name}",
         "columns": [
             {
                 "@type": "Column",
@@ -18,28 +19,33 @@
                 "dc:description": "Identifier of a core of certain planet.",
                 "required": true,
                 "datatype": "string",
-                "lang": "en"
+                "lang": "en",
+                "propertyUrl": "rdf:type",
+                "valueUrl": "http://example.org/vocabulary/Core"
             },
             {
                 "@type": "Column",
                 "name": "diameter",
                 "titles": "diameter",
                 "dc:description": "Diameter of a core.",
-                "datatype": "number"
+                "datatype": "number",
+                "propertyUrl": "https://dbpedia.org/ontology/diameter"
             },
             {
                 "@type": "Column",
                 "name": "temperature",
                 "titles": "temperature",
                 "dc:description": "An average temperature in Celsius.",
-                "datatype": "number"
+                "datatype": "number",
+                "propertyUrl": "schema:integer"
             },
             {
                 "@type": "Column",
                 "name": "age",
                 "titles": "age",
                 "dc:description": "Age of a core.",
-                "datatype": "number"
+                "datatype": "number",
+                "propertyUrl": "foaf:age"
             }
         ],
         "primaryKey": "core_name"
