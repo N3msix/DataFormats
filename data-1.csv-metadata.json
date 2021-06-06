@@ -30,7 +30,7 @@
                 "datatype": "string",
                 "lang": "en",
                 "propertyUrl": "rdfs:label",
-                "valueUrl": "{name}"
+                "valueUrl": "{+name}"
             },
             {
                 "@type": "Column",
