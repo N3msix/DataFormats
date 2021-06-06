@@ -44,7 +44,7 @@
             "researcher_id",
             "celestial_oblejct_id"
         ],
-        "foreignKey": [
+        "foreignKeys": [
             {
                 "columnReference": "researcher_id",
                 "reference": {
