@@ -11,6 +11,8 @@
     "tableSchema": {
         "@type": "Schema",
         "aboutUrl": "http://example.org/vocabulary/Discovers/{researcher_id}-{celestial_oblejct_id}",
+        "datatype": "rdf:type",
+        "valueUrl": "http://example.org/vocabulary/Discovers",
         "columns": [
             {
                 "@type": "Column",
@@ -18,7 +20,7 @@
                 "titles": "researcher_id",
                 "dc:description": "Made up id for each researcher in system.",
                 "required": true,
-                "datatype": "string",
+                "datatype": "http://example.org/vocabulary/Researcher",
                 "valueUrl": "http://example.org/vocabulary/{researcher_id}"
             },
             {
@@ -27,7 +29,7 @@
                 "titles": "celestial_oblejct_id",
                 "dc:description": "Celestial object id.",
                 "required": true,
-                "datatype": "string",
+                "datatype": "http://example.org/vocabulary/CelestialObject",
                 "valueUrl": "http://example.org/vocabulary/{celestial_oblejct_id}"
             },
             {
@@ -44,7 +46,7 @@
             "researcher_id",
             "celestial_oblejct_id"
         ],
-        "foreignKeys": [
+        "foreignKey": [
             {
                 "columnReference": "researcher_id",
                 "reference": {
