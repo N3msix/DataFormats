@@ -9,6 +9,72 @@
     "@type": "TableGroup",
     "tables": [
     {
+        "@id": "https://example.org/data-1.csv-metadata.json",
+        "@type": "Table",
+        "url": "data-1.csv",
+        "tableSchema": {
+            "@type": "Schema",
+            "aboutUrl": "http://example.org/Researchers/{researcher_id}",
+            "columns": [
+                {
+                    "@type": "Column",
+                    "name": "researcher_id",
+                    "titles": "researcher_id",
+                    "dc:description": "Made up id for each researcher in the system.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "rdf:type",
+                    "valueUrl": "http://example.org/vocabulary/Researcher"
+                },
+                {
+                    "@type": "Column",
+                    "name": "name",
+                    "titles": "name",
+                    "dc:description": "Reseachers full name.",
+                    "datatype": "string",
+                    "lang": "en",
+                    "propertyUrl": "rdfs:label"
+                },
+                {
+                    "@type": "Column",
+                    "name": "age",
+                    "titles": "age",
+                    "dc:description": "Researchers age.",
+                    "datatype": "number",
+                    "propertyUrl": "foaf:age"
+                },
+                {
+                    "@type": "Column",
+                    "name": "sex",
+                    "titles": "sex",
+                    "dc:description": "Researchers sex.",
+                    "datatype": "string",
+                    "lang": "en",
+                    "propertyUrl": "vcard:hasGender"
+                },
+                {
+                    "@type": "Column",
+                    "name": "nationality",
+                    "titles": "nationality",
+                    "dc:description": "ISO 3166-1 Alpha-2 code representing nation.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "schema:Country"
+                }
+            ],
+            "primaryKey": "researcher_id",
+            "foreignKeys": [
+                {
+                    "columnReference": "nationality",
+                    "reference": {
+                        "resource": "data-2.csv",
+                        "columnReference": "nation_id"
+                    }
+                }
+            ]
+        }
+    },
+    {
         "@id": "https://example.org/data-3.csv-metadata.json",
         "@type": "Table",
         "url": "data-3.csv",
@@ -122,6 +188,44 @@
                 }
             ]
         }
-    }
+    },
+    {
+        "@id": "https://example.org/public-contracts/data-5.csv-metadata.json",
+        "@type": "Table",
+        "url": "data-5.csv",
+        "tableSchema": {
+            "@type": "Schema",
+            "aboutUrl": "http://example.org/CelestialObjects/{celestial_object_id}",
+            "columns": [
+                {
+                    "@type": "Column",
+                    "name": "celestial_object_id",
+                    "titles": "celestial_object_id",
+                    "dc:description": "Made up id for each celestial object in the system.",
+                    "required": true,
+                    "datatype": "string",
+                    "propertyUrl": "rdf:type",
+                    "valueUrl": "http://example.org/vocabulary/CelestialObject"
+                },
+                {
+                    "@type": "Column",
+                    "name": "diameter",
+                    "titles": "diameter",
+                    "dc:description": "Diameter of celestial object.",
+                    "datatype": "number",
+                    "propertyUrl": "https://dbpedia.org/ontology/diameter"
+                },
+                {
+                    "@type": "Column",
+                    "name": "age",
+                    "titles": "age",
+                    "dc:description": "Age of celestial object.",
+                    "datatype": "number",
+                    "propertyUrl": "foaf:age"
+                }
+            ],
+            "primaryKey": "celestial_object_id"
+        }
+    }        
     ]
 }
