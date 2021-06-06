@@ -58,6 +58,15 @@
                 "propertyUrl": "rdfs:label"
             }
         ],
-        "primaryKey": "researcher_id"
+        "primaryKey": "researcher_id",
+        "foreignKey": [
+            {
+                "columnReference": "nationality",
+                "reference": {
+                    "resource": "data-2.csv",
+                    "columnReference": "nation_id"
+                }
+            }
+        ]
     }
 }
