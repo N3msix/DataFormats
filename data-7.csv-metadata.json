@@ -10,6 +10,7 @@
     "url": "data-7.csv",
     "tableSchema": {
         "@type": "Schema",
+        "aboutUrl": "http://example.org/Planets/{planet_name}",
         "columns": [
             {
                 "@type": "Column",
@@ -18,7 +19,9 @@
                 "dc:description": "Unique planet name.",
                 "required": true,
                 "datatype": "string",
-                "lang": "en"
+                "lang": "en",
+                "propertyUrl": "rdf:type",
+                "valueUrl": "http://example.org/vocabulary/Planet"
             },
             {
                 "@type": "Column",
@@ -26,28 +29,33 @@
                 "titles": "celestial_object",
                 "dc:description": "Made up id for each celestial object in the system.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                "valueUrl": "http://example.org/CelestialObjects/{celestial_object}"
             },
             {
                 "@type": "Column",
                 "name": "average_surface_temperature",
                 "titles": "average_surface_temperature",
                 "dc:description": "An average temperature on survace (in Celsius).",
-                "datatype": "number"
+                "datatype": "number",
+                "propertyUrl": "schema:integer"
             },
             {
                 "@type": "Column",
                 "name": "is_habitable",
                 "titles": "is_habitable",
                 "dc:description": "Indicates whenever a planet is habitable.",
-                "datatype": "boolean"
+                "datatype": "boolean",
+                "propertyUrl": "schema:boolean"
             },
             {
                 "@type": "Column",
                 "name": "has_atmosphere",
                 "titles": "has_atmosphere",
                 "dc:description": "Indicates whenever a planet has atmosphere.",
-                "datatype": "boolean"
+                "datatype": "boolean",
+                "propertyUrl": "schema:boolean"
             },
             {
                 "@type": "Column",
@@ -55,11 +63,13 @@
                 "titles": "has_core",
                 "dc:description": "Identifier of a core of certain planet.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "propertyUrl": "http://example.org/vocabulary/Core",
+                "valueUrl": "http://example.org/Cores/{has_core}"
             }
         ],
         "primaryKey": "planet_name",
-        "foreignKeys": [
+        "foreignKey": [
             {
                 "columnReference": "has_core",
                 "reference": {

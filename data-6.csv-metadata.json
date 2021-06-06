@@ -60,7 +60,7 @@
             }
         ],
         "primaryKey": "asteroid_name",
-        "foreignKey": [
+        "foreignKeys": [
             {
                 "columnReference": "celestial_object",
                 "reference": {
