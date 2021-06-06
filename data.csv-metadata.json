@@ -109,7 +109,7 @@
                     "dc:description": "String of ISO 639-1 Codes separated by spaces - each representing official language of a nation.",
                     "required": true,
                     "datatype": "string",
-                    "propertyUrl": "xs:language"
+                    "propertyUrl": "http://example.org/vocabulary/language"
                 },
                 {
                     "@type": "Column",
