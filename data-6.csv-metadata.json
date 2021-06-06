@@ -10,6 +10,7 @@
     "url": "data-6.csv",
     "tableSchema": {
         "@type": "Schema",
+        "aboutUrl": "http://example.org/Asteroids/{asteroid_name}",
         "columns": [
             {
                 "@type": "Column",
@@ -18,7 +19,9 @@
                 "dc:description": "Unique asteroid name.",
                 "required": true,
                 "datatype": "string",
-                "lang": "en"
+                "lang": "en",
+                "propertyUrl": "rdf:type",
+                "valueUrl": "http://example.org/vocabulary/Asteroid"
             },
             {
                 "@type": "Column",
@@ -26,21 +29,25 @@
                 "titles": "celestial_object",
                 "dc:description": "Made up id for each celestial object in the system.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                "valueUrl": "http://example.org/CelestialObjects/{celestial_object}"
             },
             {
                 "@type": "Column",
                 "name": "has_rare_materials",
                 "titles": "has_rare_materials",
                 "dc:description": "Indicates whenever rare materials can be cound on asteroid.",
-                "datatype": "boolean"
+                "datatype": "boolean",
+                "propertyUrl": "schema:boolean"
             },
             {
                 "@type": "Column",
                 "name": "is_spinning",
                 "titles": "is_spinning",
                 "dc:description": "Indicates whenever an asteroid is spinning.",
-                "datatype": "boolean"
+                "datatype": "boolean",
+                "propertyUrl": "schema:boolean"
             },
             {
                 "@type": "Column",
@@ -48,11 +55,12 @@
                 "titles": "years_sighted",
                 "dc:description": "String of years separated by spaces - each of them is year when an asteroid is observable.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "propertyUrl": "rdfs:label"
             }
         ],
         "primaryKey": "asteroid_name",
-        "foreignKeys": [
+        "foreignKey": [
             {
                 "columnReference": "celestial_object",
                 "reference": {
