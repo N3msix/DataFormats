@@ -55,7 +55,7 @@
                 "dc:description": "ISO 3166-1 Alpha-2 code representing nation.",
                 "required": true,
                 "datatype": "string",
-                "propertyUrl": "rdfs:label"
+                "propertyUrl": "schema:Country"
             }
         ],
         "primaryKey": "researcher_id",
