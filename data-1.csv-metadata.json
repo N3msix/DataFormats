@@ -30,7 +30,7 @@
                 "datatype": "string",
                 "lang": "en",
                 "propertyUrl": "rdfs:label",
-                "aboutUrl": "http://example.org/Researcher/{researcher_id}/{name}"
+                "aboutUrl": "http://example.org/Researcher/{name}"
             },
             {
                 "@type": "Column",
