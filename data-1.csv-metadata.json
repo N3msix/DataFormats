@@ -54,9 +54,19 @@
                 "titles": "nationality",
                 "dc:description": "ISO 3166-1 Alpha-2 code representing nation.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "propertyUrl": "rdfs:label"
             }
         ],
-        "primaryKey": "researcher_id"
+        "primaryKey": "researcher_id",
+        "foreignKeys": [
+            {
+                "columnReference": "nationality",
+                "reference": {
+                    "resource": "data-2.csv",
+                    "columnReference": "nation_id"
+                }
+            }
+        ]
     }
 }
