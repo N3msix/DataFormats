@@ -130,9 +130,9 @@
         "url": "data-3.csv",
         "tableSchema": {
             "@type": "Schema",
-            "aboutUrl": "http://example.org/Discovers/{researcher_id}-{celestial_object_id}",
-            "propertyUrl": "rdf:type",
-            "valueUrl": "http://example.org/vocabulary/discovers",
+            "aboutUrl": "http://example.org/Researchers/{researcher_id}",
+            "propertyUrl": "http://example.org/vocabulary/discovered",
+            "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}",
             "columns": [
                 {
                     "@type": "Column",
@@ -150,9 +150,7 @@
                     "titles": "celestial_object_id",
                     "dc:description": "Celestial object id.",
                     "required": true,
-                    "datatype": "string",
-                    "propertyUrl": "http://example.org/vocabulary/discovered",
-                    "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}"
+                    "datatype": "string"
                 },
                 {
                     "@type": "Column",
@@ -192,9 +190,9 @@
         "url": "data-4.csv",
         "tableSchema": {
             "@type": "Schema",
-            "aboutUrl": "http://example.org/Monitors/{researcher_id}-{celestial_object_id}",
-            "propertyUrl": "rdf:type",
-            "valueUrl": "http://example.org/vocabulary/monitors",
+            "aboutUrl": "http://example.org/Researchers/{researcher_id}",
+            "propertyUrl": "http://example.org/vocabulary/monitors",
+            "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}",
             "columns": [
                 {
                     "@type": "Column",
@@ -202,9 +200,7 @@
                     "titles": "researcher_id",
                     "dc:description": "Made up id for each researcher in system.",
                     "required": true,
-                    "datatype": "string",
-                    "propertyUrl": "http://example.org/vocabulary/monitoredBy",
-                    "valueUrl": "http://example.org/Researchers/{researcher_id}"
+                    "datatype": "string"
                 },
                 {
                     "@type": "Column",
@@ -212,9 +208,7 @@
                     "titles": "celestial_object_id",
                     "dc:description": "Celestial object id.",
                     "required": true,
-                    "datatype": "string",
-                    "propertyUrl": "http://example.org/vocabulary/monitored",
-                    "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}"
+                    "datatype": "string"
                 }
             ],
             "primaryKey": [
