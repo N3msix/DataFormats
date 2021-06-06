@@ -10,7 +10,7 @@
     "url": "data-3.csv",
     "tableSchema": {
         "@type": "Schema",
-        "aboutUrl": "http://example.org/vocabulary/Discovers/{researcher_id}-{celestial_oblejct_id}",
+        "aboutUrl": "http://example.org/Discovers/{researcher_id}-{celestial_oblejct_id}",
         "datatype": "rdf:type",
         "valueUrl": "http://example.org/vocabulary/Discovers",
         "columns": [
@@ -20,8 +20,9 @@
                 "titles": "researcher_id",
                 "dc:description": "Made up id for each researcher in system.",
                 "required": true,
-                "datatype": "http://example.org/vocabulary/Researcher",
-                "valueUrl": "http://example.org/vocabulary/{researcher_id}"
+                "datatype": "string",
+                "propertyUrl": "http://example.org/vocabulary/Researcher",
+                "valueUrl": "http://example.org/Researchers/{researcher_id}"
             },
             {
                 "@type": "Column",
@@ -29,8 +30,9 @@
                 "titles": "celestial_oblejct_id",
                 "dc:description": "Celestial object id.",
                 "required": true,
-                "datatype": "http://example.org/vocabulary/CelestialObject",
-                "valueUrl": "http://example.org/vocabulary/{celestial_oblejct_id}"
+                "datatype": "string",
+                "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                "valueUrl": "http://example.org/CelestialObjects/{celestial_oblejct_id}"
             },
             {
                 "@type": "Column",
@@ -39,14 +41,14 @@
                 "dc:description": "Year of discovery.",
                 "required": true,
                 "datatype": "number",
-                "valueUrl": "dbpedia:discovery"
+                "propertyUrl": "dbpedia:discovery"
             }
         ],
         "primaryKey": [
             "researcher_id",
             "celestial_oblejct_id"
         ],
-        "foreignKey": [
+        "foreignKeys": [
             {
                 "columnReference": "researcher_id",
                 "reference": {

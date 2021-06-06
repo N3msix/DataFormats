@@ -10,6 +10,9 @@
     "url": "data-4.csv",
     "tableSchema": {
         "@type": "Schema",
+        "aboutUrl": "http://example.org/Monitors/{researcher_id}-{celestial_oblejct_id}",
+        "datatype": "rdf:type",
+        "valueUrl": "http://example.org/vocabulary/Monitors",
         "columns": [
             {
                 "@type": "Column",
@@ -17,7 +20,9 @@
                 "titles": "researcher_id",
                 "dc:description": "Made up id for each researcher in system.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "propertyUrl": "http://example.org/vocabulary/Researcher",
+                "valueUrl": "http://example.org/Researchers/{researcher_id}"
             },
             {
                 "@type": "Column",
@@ -25,7 +30,9 @@
                 "titles": "celestial_oblejct_id",
                 "dc:description": "Celestial object id.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "propertyUrl": "http://example.org/vocabulary/CelestialObject",
+                "valueUrl": "http://example.org/CelestialObjects/{celestial_oblejct_id}"
             }
         ],
         "primaryKey": [

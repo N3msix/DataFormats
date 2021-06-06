@@ -10,7 +10,7 @@
     "url": "data-2.csv",
     "tableSchema": {
         "@type": "Schema",
-        "aboutUrl": "http://example.org/vocabulary/{nation_id}",
+        "aboutUrl": "http://example.org/Nations/{nation_id}",
         "columns": [
             {
                 "@type": "Column",
@@ -19,8 +19,8 @@
                 "dc:description": "ISO 3166-1 Alpha-2 code representing a nation.",
                 "required": true,
                 "datatype": "string",
-                "valueUrl": "http://example.org/vocabulary/Nation",
-                "propertyUrl": "rdf:type"
+                "propertyUrl": "rdf:type",
+                "valueUrl": "http://example.org/vocabulary/Nation"
             },
             {
                 "@type": "Column",

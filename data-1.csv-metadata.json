@@ -10,7 +10,7 @@
     "url": "data-1.csv",
     "tableSchema": {
         "@type": "Schema",
-        "aboutUrl": "http://example.org/vocabulary/{researcher_id}",
+        "aboutUrl": "http://example.org/Researchers/{researcher_id}",
         "columns": [
             {
                 "@type": "Column",
@@ -59,7 +59,7 @@
             }
         ],
         "primaryKey": "researcher_id",
-        "foreignKey": [
+        "foreignKeys": [
             {
                 "columnReference": "nationality",
                 "reference": {

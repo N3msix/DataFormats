@@ -10,6 +10,7 @@
     "url": "data-5.csv",
     "tableSchema": {
         "@type": "Schema",
+        "aboutUrl": "http://example.org/vocabulary/{celestial_oblejct_id}",
         "columns": [
             {
                 "@type": "Column",
@@ -17,21 +18,25 @@
                 "titles": "celestial_object_id",
                 "dc:description": "Made up id for each celestial object in the system.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "propertyUrl": "rdf:type",
+                "valueUrl": "http://example.org/vocabulary/CelestialObject"
             },
             {
                 "@type": "Column",
                 "name": "diameter",
                 "titles": "diameter",
                 "dc:description": "Diameter of celestial object.",
-                "datatype": "number"
+                "datatype": "number",
+                "propertyUrl": "dbpedia:diameter"
             },
             {
                 "@type": "Column",
                 "name": "age",
                 "titles": "age",
                 "dc:description": "Age of celestial object.",
-                "datatype": "number"
+                "datatype": "number",
+                "propertyUrl": "foaf:age"
             }
         ],
         "primaryKey": "celestial_object_id"
