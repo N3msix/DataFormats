@@ -190,9 +190,9 @@
         "url": "data-4.csv",
         "tableSchema": {
             "@type": "Schema",
-            "aboutUrl": "http://example.org/Researchers/{researcher_id}",
+            "aboutUrl": "http://example.org/CelestialObjects/{celestial_object_id}",
             "propertyUrl": "http://example.org/vocabulary/monitors",
-            "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}",
+            "valueUrl": "http://example.org/Researchers/{researcher_id}",
             "columns": [
                 {
                     "@type": "Column",
