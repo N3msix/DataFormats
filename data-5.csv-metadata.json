@@ -1,0 +1,39 @@
+{
+    "@id": "https://example.org/public-contracts/data-5.csv-metadata.json",
+    "@context": [
+        "http://www.w3.org/ns/csvw",
+        {
+            "@language": "en"
+        }
+    ],
+    "@type": "Table",
+    "url": "data-5.csv",
+    "tableSchema": {
+        "@type": "Schema",
+        "columns": [
+            {
+                "@type": "Column",
+                "name": "celestial_object_id",
+                "titles": "celestial_object_id",
+                "dc:description": "Made up id for each celestial object in the system.",
+                "required": true,
+                "datatype": "string"
+            },
+            {
+                "@type": "Column",
+                "name": "diameter",
+                "titles": "diameter",
+                "dc:description": "Diameter of celestial object.",
+                "datatype": "number"
+            },
+            {
+                "@type": "Column",
+                "name": "age",
+                "titles": "age",
+                "dc:description": "Age of celestial object.",
+                "datatype": "number"
+            }
+        ],
+        "primaryKey": "celestial_object_id"
+    }
+}

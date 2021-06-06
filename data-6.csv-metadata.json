@@ -1,0 +1,65 @@
+{
+    "@id": "https://example.org/data-6.csv-metadata.json",
+    "@context": [
+        "http://www.w3.org/ns/csvw",
+        {
+            "@language": "en"
+        }
+    ],
+    "@type": "Table",
+    "url": "data-6.csv",
+    "tableSchema": {
+        "@type": "Schema",
+        "columns": [
+            {
+                "@type": "Column",
+                "name": "asteroid_name",
+                "titles": "asteroid_name",
+                "dc:description": "Unique asteroid name.",
+                "required": true,
+                "datatype": "string",
+                "lang": "en"
+            },
+            {
+                "@type": "Column",
+                "name": "celestial_object",
+                "titles": "celestial_object",
+                "dc:description": "Made up id for each celestial object in the system.",
+                "required": true,
+                "datatype": "string"
+            },
+            {
+                "@type": "Column",
+                "name": "has_rare_materials",
+                "titles": "has_rare_materials",
+                "dc:description": "Indicates whenever rare materials can be cound on asteroid.",
+                "datatype": "boolean"
+            },
+            {
+                "@type": "Column",
+                "name": "is_spinning",
+                "titles": "is_spinning",
+                "dc:description": "Indicates whenever an asteroid is spinning.",
+                "datatype": "boolean"
+            },
+            {
+                "@type": "Column",
+                "name": "years_sighted",
+                "titles": "years_sighted",
+                "dc:description": "String of years separated by spaces - each of them is year when an asteroid is observable.",
+                "required": true,
+                "datatype": "string"
+            }
+        ],
+        "primaryKey": "asteroid_name",
+        "foreignKeys": [
+            {
+                "columnReference": "celestial_object",
+                "reference": {
+                    "resource": "data-5.csv",
+                    "columnReference": "celestial_object_id"
+                }
+            }
+        ]
+    }
+}

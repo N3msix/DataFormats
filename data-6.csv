@@ -1,0 +1,4 @@
+asteroid_name,celestial_object,has_rare_materials,is_spinning,years_sighted
+Ceres,a1,true,true,"1951 1987 1990"
+Juno,a2,false,false,"1994 1995 1996 1997 1998"
+Isis,a3,true,false,"2010 2020"

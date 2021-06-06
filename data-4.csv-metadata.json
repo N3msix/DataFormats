@@ -1,0 +1,52 @@
+{
+    "@id": "https://example.org/data-4.csv-metadata.json",
+    "@context": [
+        "http://www.w3.org/ns/csvw",
+        {
+            "@language": "en"
+        }
+    ],
+    "@type": "Table",
+    "url": "data-4.csv",
+    "tableSchema": {
+        "@type": "Schema",
+        "columns": [
+            {
+                "@type": "Column",
+                "name": "researcher_id",
+                "titles": "researcher_id",
+                "dc:description": "Made up id for each researcher in system.",
+                "required": true,
+                "datatype": "string"
+            },
+            {
+                "@type": "Column",
+                "name": "celestial_oblejct_id",
+                "titles": "celestial_oblejct_id",
+                "dc:description": "Celestial object id.",
+                "required": true,
+                "datatype": "string"
+            }
+        ],
+        "primaryKey": [
+            "researcher_id",
+            "celestial_oblejct_id"
+        ],
+        "foreignKeys": [
+            {
+                "columnReference": "researcher_id",
+                "reference": {
+                    "resource": "data-1.csv",
+                    "columnReference": "researcher_id"
+                }
+            },
+            {
+                "columnReference": "celestial_oblejct_id",
+                "reference": {
+                    "resource": "data-5.csv",
+                    "columnReference": "celestial_oblejct_id"
+                }
+            }
+        ]
+    }
+}

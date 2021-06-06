@@ -1,0 +1,72 @@
+{
+    "@id": "https://example.org/data-7.csv-metadata.json",
+    "@context": [
+        "http://www.w3.org/ns/csvw",
+        {
+            "@language": "en"
+        }
+    ],
+    "@type": "Table",
+    "url": "data-7.csv",
+    "tableSchema": {
+        "@type": "Schema",
+        "columns": [
+            {
+                "@type": "Column",
+                "name": "planet_name",
+                "titles": "planet_name",
+                "dc:description": "Unique planet name.",
+                "required": true,
+                "datatype": "string",
+                "lang": "en"
+            },
+            {
+                "@type": "Column",
+                "name": "celestial_object",
+                "titles": "celestial_object",
+                "dc:description": "Made up id for each celestial object in the system.",
+                "required": true,
+                "datatype": "string"
+            },
+            {
+                "@type": "Column",
+                "name": "average_surface_temperature",
+                "titles": "average_surface_temperature",
+                "dc:description": "An average temperature on survace (in Celsius).",
+                "datatype": "number"
+            },
+            {
+                "@type": "Column",
+                "name": "is_habitable",
+                "titles": "is_habitable",
+                "dc:description": "Indicates whenever a planet is habitable.",
+                "datatype": "boolean"
+            },
+            {
+                "@type": "Column",
+                "name": "has_atmosphere",
+                "titles": "has_atmosphere",
+                "dc:description": "Indicates whenever a planet has atmosphere.",
+                "datatype": "boolean"
+            },
+            {
+                "@type": "Column",
+                "name": "has_core",
+                "titles": "has_core",
+                "dc:description": "Identifier of a core of certain planet.",
+                "required": true,
+                "datatype": "string"
+            }
+        ],
+        "primaryKey": "planet_name",
+        "foreignKeys": [
+            {
+                "columnReference": "has_core",
+                "reference": {
+                    "resource": "data-8.csv",
+                    "columnReference": "core_name"
+                }
+            }
+        ]
+    }
+}

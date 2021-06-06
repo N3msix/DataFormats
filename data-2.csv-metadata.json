@@ -1,0 +1,50 @@
+{
+    "@id": "https://example.org/data-2.csv-metadata.json",
+    "@context": [
+        "http://www.w3.org/ns/csvw",
+        {
+            "@language": "en"
+        }
+    ],
+    "@type": "Table",
+    "url": "data-2.csv",
+    "tableSchema": {
+        "@type": "Schema",
+        "columns": [
+            {
+                "@type": "Column",
+                "name": "nation_id",
+                "titles": "nation_id",
+                "dc:description": "ISO 3166-1 Alpha-2 code representing a nation.",
+                "required": true,
+                "datatype": "string"
+            },
+            {
+                "@type": "Column",
+                "name": "name",
+                "titles": "name",
+                "dc:description": "Full name of a nation.",
+                "required": true,
+                "datatype": "string",
+                "lang": "en"
+            },
+            {
+                "@type": "Column",
+                "name": "official_language",
+                "titles": "official_language",
+                "dc:description": "String of ISO 639-1 Codes separated by spaces - each representing official language of a nation.",
+                "required": true,
+                "datatype": "string"
+            },
+            {
+                "@type": "Column",
+                "name": "population",
+                "titles": "population",
+                "dc:description": "Population of a nation.",
+                "required": true,
+                "datatype": "number"
+            }
+        ],
+        "primaryKey": "nation_id"
+    }
+}

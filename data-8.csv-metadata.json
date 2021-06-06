@@ -1,0 +1,47 @@
+{
+    "@id": "https://example.org/data-8.csv-metadata.json",
+    "@context": [
+        "http://www.w3.org/ns/csvw",
+        {
+            "@language": "en"
+        }
+    ],
+    "@type": "Table",
+    "url": "data-8.csv",
+    "tableSchema": {
+        "@type": "Schema",
+        "columns": [
+            {
+                "@type": "Column",
+                "name": "core_name",
+                "titles": "core_name",
+                "dc:description": "Identifier of a core of certain planet.",
+                "required": true,
+                "datatype": "string",
+                "lang": "en"
+            },
+            {
+                "@type": "Column",
+                "name": "diameter",
+                "titles": "diameter",
+                "dc:description": "Diameter of a core.",
+                "datatype": "number"
+            },
+            {
+                "@type": "Column",
+                "name": "temperature",
+                "titles": "temperature",
+                "dc:description": "An average temperature in Celsius.",
+                "datatype": "number"
+            },
+            {
+                "@type": "Column",
+                "name": "age",
+                "titles": "age",
+                "dc:description": "Age of a core.",
+                "datatype": "number"
+            }
+        ],
+        "primaryKey": "core_name"
+    }
+}

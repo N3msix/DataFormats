@@ -1,0 +1,4 @@
+planet_name,celestial_object,average_surface_temperature,is_habitable,has_atmosphere,has_core
+Earth,p1,20,true,true,earthCore
+Mercury,p2,180,false,false,mercuryCore
+Jupiter,p3,-120,false,true,jupiterCore
