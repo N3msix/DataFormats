@@ -10,6 +10,7 @@
     "url": "data-3.csv",
     "tableSchema": {
         "@type": "Schema",
+        "aboutUrl": "http://example.org/vocabulary/Discovers/{researcher_id}-{celestial_oblejct_id}",
         "columns": [
             {
                 "@type": "Column",
@@ -17,7 +18,8 @@
                 "titles": "researcher_id",
                 "dc:description": "Made up id for each researcher in system.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "valueUrl": "http://example.org/vocabulary/{researcher_id}"
             },
             {
                 "@type": "Column",
@@ -25,7 +27,8 @@
                 "titles": "celestial_oblejct_id",
                 "dc:description": "Celestial object id.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "valueUrl": "http://example.org/vocabulary/{celestial_oblejct_id}"
             },
             {
                 "@type": "Column",
@@ -33,14 +36,15 @@
                 "titles": "discovered_in",
                 "dc:description": "Year of discovery.",
                 "required": true,
-                "datatype": "number"
+                "datatype": "number",
+                "valueUrl": "dbpedia:discovery"
             }
         ],
         "primaryKey": [
             "researcher_id",
             "celestial_oblejct_id"
         ],
-        "foreignKeys": [
+        "foreignKey": [
             {
                 "columnReference": "researcher_id",
                 "reference": {
