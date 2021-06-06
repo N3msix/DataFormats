@@ -10,7 +10,7 @@
     "url": "data-3.csv",
     "tableSchema": {
         "@type": "Schema",
-        "aboutUrl": "http://example.org/Discovers/{researcher_id}-{celestial_oblejct_id}",
+        "aboutUrl": "http://example.org/Discovers/{researcher_id}-{celestial_object_id}",
         "datatype": "rdf:type",
         "valueUrl": "http://example.org/vocabulary/Discovers",
         "columns": [
@@ -26,13 +26,13 @@
             },
             {
                 "@type": "Column",
-                "name": "celestial_oblejct_id",
-                "titles": "celestial_oblejct_id",
+                "name": "celestial_object_id",
+                "titles": "celestial_object_id",
                 "dc:description": "Celestial object id.",
                 "required": true,
                 "datatype": "string",
                 "propertyUrl": "http://example.org/vocabulary/CelestialObject",
-                "valueUrl": "http://example.org/CelestialObjects/{celestial_oblejct_id}"
+                "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}"
             },
             {
                 "@type": "Column",
@@ -46,7 +46,7 @@
         ],
         "primaryKey": [
             "researcher_id",
-            "celestial_oblejct_id"
+            "celestial_object_id"
         ],
         "foreignKeys": [
             {
@@ -57,10 +57,10 @@
                 }
             },
             {
-                "columnReference": "celestial_oblejct_id",
+                "columnReference": "celestial_object_id",
                 "reference": {
                     "resource": "data-5.csv",
-                    "columnReference": "celestial_oblejct_id"
+                    "columnReference": "celestial_object_id"
                 }
             }
         ]

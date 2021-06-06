@@ -10,7 +10,7 @@
     "url": "data-5.csv",
     "tableSchema": {
         "@type": "Schema",
-        "aboutUrl": "http://example.org/CelestialObjects/{celestial_oblejct_id}",
+        "aboutUrl": "http://example.org/CelestialObjects/{celestial_object_id}",
         "columns": [
             {
                 "@type": "Column",
