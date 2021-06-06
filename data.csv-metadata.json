@@ -140,7 +140,7 @@
                     "titles": "researcher_id",
                     "dc:description": "Made up id for each researcher in system.",
                     "required": true,
-                    "datatype": "anyURI",
+                    "datatype": "string",
                     "propertyUrl": "http://example.org/vocabulary/discoveredBy",
                     "valueUrl": "http://example.org/Researchers/{researcher_id}"
                 },
@@ -150,7 +150,7 @@
                     "titles": "celestial_object_id",
                     "dc:description": "Celestial object id.",
                     "required": true,
-                    "datatype": "anyURI",
+                    "datatype": "string",
                     "propertyUrl": "http://example.org/vocabulary/discovered",
                     "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}"
                 },
@@ -202,7 +202,7 @@
                     "titles": "researcher_id",
                     "dc:description": "Made up id for each researcher in system.",
                     "required": true,
-                    "datatype": "anyURI",
+                    "datatype": "string",
                     "propertyUrl": "http://example.org/vocabulary/monitoredBy",
                     "valueUrl": "http://example.org/Researchers/{researcher_id}"
                 },
@@ -212,7 +212,7 @@
                     "titles": "celestial_object_id",
                     "dc:description": "Celestial object id.",
                     "required": true,
-                    "datatype": "anyURI",
+                    "datatype": "string",
                     "propertyUrl": "http://example.org/vocabulary/monitored",
                     "valueUrl": "http://example.org/CelestialObjects/{celestial_object_id}"
                 }
@@ -302,7 +302,7 @@
                     "titles": "celestial_object",
                     "dc:description": "Made up id for each celestial object in the system.",
                     "required": true,
-                    "datatype": "anyURI",
+                    "datatype": "string",
                     "propertyUrl": "http://example.org/vocabulary/isCelestialObject",
                     "valueUrl": "http://example.org/CelestialObjects/{celestial_object}"
                 },
@@ -369,7 +369,7 @@
                     "titles": "celestial_object",
                     "dc:description": "Made up id for each celestial object in the system.",
                     "required": true,
-                    "datatype": "anyURI",
+                    "datatype": "string",
                     "propertyUrl": "http://example.org/vocabulary/IsCelestialObject",
                     "valueUrl": "http://example.org/CelestialObjects/{celestial_object}"
                 },
