@@ -10,6 +10,7 @@
     "url": "data-2.csv",
     "tableSchema": {
         "@type": "Schema",
+        "aboutUrl": "http://example.org/vocabulary/{nation_id}",
         "columns": [
             {
                 "@type": "Column",
@@ -17,7 +18,9 @@
                 "titles": "nation_id",
                 "dc:description": "ISO 3166-1 Alpha-2 code representing a nation.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "valueUrl": "http://example.org/vocabulary/Nation",
+                "propertyUrl": "rdf:type"
             },
             {
                 "@type": "Column",
@@ -26,7 +29,8 @@
                 "dc:description": "Full name of a nation.",
                 "required": true,
                 "datatype": "string",
-                "lang": "en"
+                "lang": "en",
+                "propertyUrl": "rdfs:label"
             },
             {
                 "@type": "Column",
@@ -34,7 +38,8 @@
                 "titles": "official_language",
                 "dc:description": "String of ISO 639-1 Codes separated by spaces - each representing official language of a nation.",
                 "required": true,
-                "datatype": "string"
+                "datatype": "string",
+                "propertyUrl": "xs:language"
             },
             {
                 "@type": "Column",
@@ -42,7 +47,8 @@
                 "titles": "population",
                 "dc:description": "Population of a nation.",
                 "required": true,
-                "datatype": "number"
+                "datatype": "number",
+                "propertyUrl": "dbpedia:populationTotal"
             }
         ],
         "primaryKey": "nation_id"
