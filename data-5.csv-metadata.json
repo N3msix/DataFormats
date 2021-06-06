@@ -28,7 +28,7 @@
                 "titles": "diameter",
                 "dc:description": "Diameter of celestial object.",
                 "datatype": "number",
-                "propertyUrl": "dbpedia:diameter"
+                "propertyUrl": "https://dbpedia.org/ontology/diameter"
             },
             {
                 "@type": "Column",
