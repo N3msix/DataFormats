@@ -48,7 +48,7 @@
                 "dc:description": "Population of a nation.",
                 "required": true,
                 "datatype": "number",
-                "propertyUrl": "dbpedia:populationTotal"
+                "propertyUrl": "https://dbpedia.org/ontology/populationTotal"
             }
         ],
         "primaryKey": "nation_id"

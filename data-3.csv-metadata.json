@@ -41,7 +41,7 @@
                 "dc:description": "Year of discovery.",
                 "required": true,
                 "datatype": "number",
-                "propertyUrl": "dbpedia:discovery"
+                "propertyUrl": "https://dbpedia.org/ontology/discovery"
             }
         ],
         "primaryKey": [

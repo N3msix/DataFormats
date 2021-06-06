@@ -59,7 +59,7 @@
             }
         ],
         "primaryKey": "researcher_id",
-        "foreignKey": [
+        "foreignKeys": [
             {
                 "columnReference": "nationality",
                 "reference": {
