@@ -12,7 +12,7 @@
         "@type": "Schema",
         "aboutUrl": "http://example.org/Researcher/{researcher_id}",
         "valueUrl": "http://example.org/Researcher",
-        "propertyUrl": "rdf:type"
+        "propertyUrl": "rdf:type",
         "columns": [
             {
                 "@type": "Column",
