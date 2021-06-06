@@ -10,8 +10,8 @@
     "url": "data-1.csv",
     "tableSchema": {
         "@type": "Schema",
-        "aboutUrl": "http://example.org/Researcher/{researcher_id}",
-        "valueUrl": "http://example.org/Researcher",
+        "aboutUrl": "http://example.org/vocabulary/{researcher_id}",
+        "valueUrl": "http://example.org/vocabulary/Researcher",
         "propertyUrl": "rdf:type",
         "columns": [
             {
@@ -30,7 +30,7 @@
                 "datatype": "string",
                 "lang": "en",
                 "propertyUrl": "rdfs:label",
-                "valueUrl": "{+name}"
+                "valueUrl": "http://example.org/Researcher/{researcher_id}/{name}"
             },
             {
                 "@type": "Column",
