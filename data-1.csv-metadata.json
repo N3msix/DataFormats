@@ -10,6 +10,9 @@
     "url": "data-1.csv",
     "tableSchema": {
         "@type": "Schema",
+        "aboutUrl": "http://example.org/Researcher/{researcher_id}",
+        "valueUrl": "http://example.org/Researcher",
+        "propertyUrl": "rdf:type"
         "columns": [
             {
                 "@type": "Column",
@@ -17,10 +20,7 @@
                 "titles": "researcher_id",
                 "dc:description": "Made up id for each researcher in the system.",
                 "required": true,
-                "datatype": "string",
-                "valueUrl": "http://example.org/Researcher",
-                "propertyUrl": "rdf:type",
-                "aboutUrl": "http://example.org/Researcher/{researcher_id}"
+                "datatype": "string"
             },
             {
                 "@type": "Column",
@@ -30,7 +30,7 @@
                 "datatype": "string",
                 "lang": "en",
                 "propertyUrl": "rdfs:label",
-                "aboutUrl": "http://example.org/Researcher/{name}"
+                "valueUrl": "{name}"
             },
             {
                 "@type": "Column",
